@@ -1,6 +1,6 @@
 import csv 
 import numpy as np 
-
+from unicode import unicode
 exampleFile=open('RestAspTermABSA.csv')
 reader=csv.reader(exampleFile,delimiter=';')
 edata=list(reader)
@@ -39,4 +39,19 @@ i=0
 #now do word embeddings
 #label2IdX={}
 #map labls
+
+#first extract relevant words to check
+
+words=set()
+for sentence in text_pre:
+	sentence=sentence.strip()
+	if(len(sentence)==0):
+		continue
+	splits=sentence.split('\t')
+	words.add(splits[1])
+
+words=sorted(words)
+
+
+
 

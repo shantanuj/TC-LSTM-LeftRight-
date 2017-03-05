@@ -30,6 +30,8 @@ while(i<len(label_pre)):
 	label_pre[i]=label_pre[i][0]
 	i+=1
 i=0
+
+#MIGHT NOT NEED THIS PART
 while(i<len(label_pre)):
 	if(label_pre[i]=='negative'):
 		label_pre[i]=0
@@ -96,8 +98,8 @@ for line in open(vocabPath,'r'):
 label2Idx={"negative":0,"neutral":1,"positive":2}
 
 #store aspect embeddings here (LSTM-TC)
-for word in aspect_pre:
-	if(len)
+#for word in aspect_pre:
+	#if(len)
 
 
 
@@ -121,11 +123,16 @@ f.close()
 
 ##CREATING MATRICES
 
-training_set=text_pre[:3400]
-testing_set=text_pre[3400:]
+training_set=text_pre[:2220] #to pass to creatematrix in following format
+#[sentence 1, sentece2 sentence 3]
 
-train_set=createMatrices(training_set,windowSize,word2Idx,label2Idx,aspect_pre)
-test_set=createMatrices(testing_set,windowSize,word2Idx,label2Idx,aspect_pre)
+deving_set=text_pre[2220:3141]
+
+testing_set=text_pre[3141:]#3700
+
+train_set=createMatrices(training_set,windowSize,word2Idx,label2Idx,aspect_pre,label_pre)
+dev_set=createMatrices(deving_set,windowSize,word2Idx,label2Idx,aspect_pre,label_pre)
+test_set=createMatrices(testing_set,windowSize,word2Idx,label2Idx,aspect_pre,label_pre)
 
 
 f=gzip.open(picklePath,'wb')
@@ -144,17 +151,24 @@ print("Data stored in pkl folder")
 
 
 
-def createMatrices(sentences,windowsize,label2IdX):
-	#label2Idx basicla
+def createMatrices(sentences,windowsize,word2Idx,label2IdX,aspect_pre,label_pre):
+	"""#format
+	#sentences--> ["Example is here ","this is great word",....]
+	windowsize --> if implementation requires segmented words input
+	word2Idx --> id of word in embeddings vector, only need id as KERAS already implements embedding layer
+	label2Idx --> id of label, so negative basically 0 
+	"""
 	unknownIdx=word2Idx['UKNOWN_TOKEN']
 	paddingIdx=word2Idx['PADDING_TOKEN']
 	dataset=[]
 	wordcount=0
 	unknowWordcount=0
+	labelIndices=[]
 	for sentence in sentences:
 		wordIndices=[]
 		aspectIndices=[]
-		labelIndices=[]
+		
+
 
 
 

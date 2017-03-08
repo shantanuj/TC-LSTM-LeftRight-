@@ -157,6 +157,7 @@ def createMatrices(sentences,windowsize,word2Idx,label2IdX,aspect_pre,label_pre)
 	windowsize --> if implementation requires segmented words input
 	word2Idx --> id of word in embeddings vector, only need id as KERAS already implements embedding layer
 	label2Idx --> id of label, so negative basically 0 
+	will return an array with [[word1id,awordid]
 	"""
 	unknownIdx=word2Idx['UKNOWN_TOKEN']
 	paddingIdx=word2Idx['PADDING_TOKEN']
@@ -164,10 +165,28 @@ def createMatrices(sentences,windowsize,word2Idx,label2IdX,aspect_pre,label_pre)
 	wordcount=0
 	unknowWordcount=0
 	labelIndices=[]
+	i=0
 	for sentence in sentences:
 		wordIndices=[]
 		aspectIndices=[]
-		
+		labelIndices=[label2Idx[label_pre[i]]]
+		for word in sentence:
+			wordcount+=1
+			aspectIndices.append(word2Idx[aspect_pre[i]])
+			#PR1 aspect coupled with each word???
+			#Alt aspect coupled only once along with word vector id so [word,aspect] instead of [word1id,2id],[aspect,aspect]
+			if(word in word2Idx):
+				wordIdx=word2Idx[word]
+			elif word.lower() in word2Idx:
+				wordIdx=word2Idx[word.lower()]
+			else:
+				wordIdx=unknownIdx
+				unknowWordcount+=1
+			wordIndices.append(wordIdx)
+		i+=1
+
+	dataset.append([wordIndices,aspectIndices,labelIndices])
+	return dataset
 
 
 

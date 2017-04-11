@@ -4,12 +4,12 @@ Implementation of Duyu Tang's paper on using TC-LSTM for Aspect based sentiment 
 Keras model with Tensorflow backend
 
 ### Components:
-1) Dataset: 
+#### 1) Dataset: 
 + Semeval 14 dataset task 5- restaurant provided with labelling. 
 + Enron corpus dataset with labels (done by EEE@NTU)
 
-2) Preprocessing:
-+ Two files prepre.py and preprocessing.py
+#### 2) Preprocessing:
++ Two files __prepre.py and preprocessing.py__
 
 + Preprocessing initializes word vectors and stores in pickle file.
 + Include preprocessing of xml data source for semeval and dataset cleaning model. (TO DO)
@@ -20,7 +20,7 @@ Keras model with Tensorflow backend
 + To do: Include jupyter notebook interface and XML reading for semeval.
 
 
-3) Model:
+#### 3) Model:
 + Implemented in Keras with **accuracy of 74% with Semeval restaurant terms with 300d vectors on Nvidia GPU.**
 + Second model of Bidirectional, target LSTM and single lstm included (TO DO)
 

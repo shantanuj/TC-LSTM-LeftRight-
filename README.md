@@ -1,4 +1,4 @@
-# Bilstm2
+# LeftRightLSTM 
 
 Implementation of Duyu Tang's paper on using TC-LSTM for Aspect based sentiment analysis (https://arxiv.org/pdf/1512.01100.pdf)
 Keras model

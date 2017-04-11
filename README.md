@@ -36,4 +36,5 @@ Keras model with Tensorflow backend
 ### To Do:
 1) Incorporate python command line arguments to choose embeddings and data.
 2) Improve aspect classification in preprocessing.
-3) Make code py2 to resolve NVidia workstation problem.
+3) Generalize prepre and preprocessing dependency to support different text data sources
+4) Make code py2 compatible to resolve NVidia workstation problem.

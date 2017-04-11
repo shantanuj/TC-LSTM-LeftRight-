@@ -13,7 +13,7 @@ Keras model with Tensorflow backend
 + Include preprocessing of xml data source for semeval and dataset cleaning model. (TO DO)
 
 3) Model:
-+ Implemented in Keras with accuracy of 74% with Semeval rest terms with 300d vectors on Nvidia GPU.
++ Implemented in Keras with **accuracy of 74% with Semeval restaurant terms with 300d vectors on Nvidia GPU.**
 + Second model of Bidirectional, target LSTM and single lstm included (TO DO)
 
 

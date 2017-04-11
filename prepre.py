@@ -28,7 +28,8 @@ fileType=""
 fInputFile=""
 delimiter=","
 df_resultant=""
-
+def process_XML(fileT):
+        None
 def listFiles(fileT):
     global inputFiles
     global fileType
